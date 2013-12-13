@@ -2,7 +2,7 @@
 /**
 Plugin Name: Groupon Master
 Plugin URI: http://wordpress.techgasp.com/groupon-master/
-Version: 4.0
+Version: 4.1
 Author: TechGasp
 Author URI: http://wordpress.techgasp.com
 Text Domain: groupon-master

@@ -3,7 +3,7 @@ Contributors: Techgasp
 Tags: wordpress, plugin, widget, shortcode, techgasp, groupon, affiliate, ads, income, sale, make money, revenue
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 4.0
+Stable tag: 4.1
 License: GPLv2 or later
 
 Easy to use bombastic plugin that will be a great source of income for any wordpress webmaster. Groupon Master.
@@ -92,6 +92,9 @@ IMPORTANT: Errors and conflicts free. NO JAVASCRIPT or AJAX
 
 
 == Changelog ==
+
+= 4.1 =
+* Minor tweaks related to new stock buttons
 
 = 4.0 =
 * Stable Release

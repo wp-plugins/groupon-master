@@ -48,6 +48,7 @@ class groupon_master_widget extends WP_Widget {
 	$defaults = array( 'name' => __('Groupon Master', 'groupon_master'), 'title' => true, 'show_groupondeals' => false, 'groupondeals_code' => false );
 	$instance = wp_parse_args( (array) $instance, $defaults );
 	?>
+		<br>
 		<b>Check the buttons to be displayed:</b>
 	<p>
 	<img src="<?php echo plugins_url('../images/techgasp-minilogo-16.png', __FILE__); ?>" style="float:left; height:16px; vertical-align:middle;" />
@@ -87,13 +88,10 @@ class groupon_master_widget extends WP_Widget {
 	<p>
 	<img src="<?php echo plugins_url('../images/techgasp-minilogo-16.png', __FILE__); ?>" style="float:left; width:16px; vertical-align:middle;" />
 	&nbsp;
-	<b>Advanced Version Updater:</b>
+	<b>Advanced Version Updater</b>
 	</p>
-	<label for="<?php echo $this->get_field_id( 'down_link_groupon' ); ?>"><?php _e('Download Key:', 'groupon_master'); ?></label>
-	<input id="<?php echo $this->get_field_id( 'down_link_groupon' ); ?>" name="<?php echo $this->get_field_name( 'down_link_groupon' ); ?>" value="<?php echo get_option('down_link_groupon'); ?>" style="width:auto;" />
-	<div class="description">The advanced version updater allows to automatically update your advanced plugin. Insert your download key, it can be found in your purchase email. Example:</div>
-	<div class="description">http://w.techgasp.com./.downloads_key=ngjvyqqvio1</div>
-	<div class="description">Your key would be: <b>ngjvyqqvio1</b></div>
+	<div class="description">The advanced version updater allows to automatically update your advanced plugin. Only available in advanced version.</div>
+	<br>
 	<?php
 	}
  }
