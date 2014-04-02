@@ -2,7 +2,7 @@
 /**
 Plugin Name: Groupon Master
 Plugin URI: http://wordpress.techgasp.com/groupon-master/
-Version: 4.3
+Version: 4.3.5
 Author: TechGasp
 Author URI: http://wordpress.techgasp.com
 Text Domain: groupon-master
@@ -29,9 +29,9 @@ if(!class_exists('groupon_master')) :
 ///////DEFINE ID//////
 define('GROUPON_MASTER_ID', 'groupon-master');
 ///////DEFINE VERSION///////
-define( 'groupon_master_VERSION', '4.3' );
+define( 'groupon_master_VERSION', '4.3.5' );
 global $groupon_master_version, $groupon_master_name;
-$groupon_master_version = "4.3"; //for other pages
+$groupon_master_version = "4.3.5"; //for other pages
 $groupon_master_name = "Groupon Master"; //pretty name
 if( is_multisite() ) {
 update_site_option( 'groupon_master_installed_version', $groupon_master_version );
