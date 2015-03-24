@@ -27,12 +27,20 @@ class groupon_master_widget_buttons extends WP_Widget {
 		// Display the Widget Title
 		if ( $groupon_title ){
 			if (empty ($groupon_title_new)){
-			$groupon_title_new = "Groupon Master";
+			if(is_multisite()){
+			$groupon_title_new = get_site_option('groupon_master_name');
+			}
+			else{
+			$groupon_title_new = get_option('groupon_master_name');
 			}
 		echo $before_title . $groupon_title_new . $after_title;
 		}
 		else{
+		echo $before_title . $groupon_title_new . $after_title;
 		}
+	}
+	else{
+	}
 	//Display Groupon Profile Button
 	if ( $show_grouponbutton ){
 		echo '<a href="'.$grouponbutton_page.'" target="_blank"><img src="'.$url_loc.'/groupon-master/images/techgasp-groupon-button.png"></a>';
@@ -86,7 +94,7 @@ class groupon_master_widget_buttons extends WP_Widget {
 	&nbsp;
 	<b>Groupon Master Website</b>
 	</p>
-	<p><a class="button-secondary" href="http://wordpress.techgasp.com/groupon-master/" target="_blank" title="Groupon Master Info Page">Info Page</a> <a class="button-secondary" href="http://wordpress.techgasp.com/groupon-master-documentation/" target="_blank" title="Groupon Master Documentation">Documentation</a> <a class="button-primary" href="http://wordpress.org/plugins/groupon-master/" target="_blank" title="Groupon Master Wordpress">RATE US *****</a></p>
+	<p><a class="button-secondary" href="http://wordpress.techgasp.com/groupon-master/" target="_blank" title="Groupon Master Info Page">Info Page</a> <a class="button-secondary" href="http://wordpress.techgasp.com/groupon-master-documentation/" target="_blank" title="Groupon Master Documentation">Documentation</a> <a class="button-primary" href="http://wordpress.techgasp.com/groupon-master/" target="_blank" title="Get Add-ons">Get Add-ons</a></p>
 	<?php
 	}
  }

@@ -2,7 +2,7 @@
 /**
 Plugin Name: Groupon Master
 Plugin URI: http://wordpress.techgasp.com/groupon-master/
-Version: 4.3.6
+Version: 4.4.1.4
 Author: TechGasp
 Author URI: http://wordpress.techgasp.com
 Text Domain: groupon-master
@@ -26,12 +26,16 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 if(!class_exists('groupon_master')) :
+///////DEFINE DIR///////
+define( 'GROUPON_MASTER_DIR', plugin_dir_path( __FILE__ ) );
+///////DEFINE URL///////
+define( 'GROUPON_MASTER_URL', plugin_dir_url( __FILE__ ) );
 ///////DEFINE ID//////
-define('GROUPON_MASTER_ID', 'groupon-master');
+define( 'GROUPON_MASTER_ID', 'groupon-master');
 ///////DEFINE VERSION///////
-define( 'groupon_master_VERSION', '4.3.6' );
+define( 'GROUPON_MASTER_VERSION', '4.4.1.4' );
 global $groupon_master_version, $groupon_master_name;
-$groupon_master_version = "4.3.6"; //for other pages
+$groupon_master_version = "4.4.1.4"; //for other pages
 $groupon_master_name = "Groupon Master"; //pretty name
 if( is_multisite() ) {
 update_site_option( 'groupon_master_installed_version', $groupon_master_version );
@@ -53,13 +57,13 @@ require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin-addons.php')
 require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin-updater.php');
 // HOOK WIDGET BUTTONS
 require_once( dirname( __FILE__ ) . '/includes/groupon-master-widget-buttons.php');
-// HOOK WIDGET GROUPON DEALS
+// HOOK WIDGET GROUPON DEALS >> ADVANCED
 require_once( dirname( __FILE__ ) . '/includes/groupon-master-widget-groupon-deals.php');
 
 class groupon_master{
 //REGISTER PLUGIN
 public static function groupon_master_register(){
-register_setting(GROUPON_MASTER_ID, 'tsm_quote');
+register_activation_hook( __FILE__, array( __CLASS__, 'groupon_master_activate' ) );
 }
 public static function content_with_quote($content){
 $quote = '<p>' . get_option('tsm_quote') . '</p>';
@@ -67,10 +71,15 @@ $quote = '<p>' . get_option('tsm_quote') . '</p>';
 }
 //SETTINGS LINK IN PLUGIN MANAGER
 public static function groupon_master_links( $links, $file ) {
-	if ( $file == plugin_basename( dirname(__FILE__).'/groupon-master.php' ) ) {
-		$links[] = '<a href="' . admin_url( 'admin.php?page=groupon-master' ) . '">'.__( 'Settings' ).'</a>';
+if ( $file == plugin_basename( dirname(__FILE__).'/groupon-master.php' ) ) {
+		if( is_network_admin() ){
+		$techgasp_plugin_url = network_admin_url( 'admin.php?page=groupon-master' );
+		}
+		else {
+		$techgasp_plugin_url = admin_url( 'admin.php?page=groupon-master' );
+		}
+	$links[] = '<a href="' . $techgasp_plugin_url . '">'.__( 'Settings' ).'</a>';
 	}
-
 	return $links;
 }
 
@@ -102,8 +111,9 @@ update_option( 'groupon_master_newest_version', $r->new_version );
 }
 }
 }
-		// Advanced Updater
-
+//Remove WP Updater
+// Advanced Updater
+//Updater Label Message
 //END CLASS
 }
 if ( is_admin() ){
