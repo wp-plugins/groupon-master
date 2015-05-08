@@ -2,7 +2,7 @@
 Contributors: TechGasp
 Tags: wordpress, plugin, widget, shortcode, techgasp, groupon, affiliate, ads, income, sale, make money, revenue
 Requires at least: 3.5
-Tested up to: 4.2.1
+Tested up to: 4.2.2
 Stable tag: 4.4.1.5
 License: GPLv2 or later
 
