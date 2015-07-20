@@ -2,7 +2,7 @@
 /**
 Plugin Name: Groupon Master
 Plugin URI: http://wordpress.techgasp.com/groupon-master/
-Version: 4.4.1.5
+Version: 4.4.2.0
 Author: TechGasp
 Author URI: http://wordpress.techgasp.com
 Text Domain: groupon-master
@@ -26,16 +26,11 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 if(!class_exists('groupon_master')) :
-///////DEFINE DIR///////
-define( 'GROUPON_MASTER_DIR', plugin_dir_path( __FILE__ ) );
-///////DEFINE URL///////
-define( 'GROUPON_MASTER_URL', plugin_dir_url( __FILE__ ) );
-///////DEFINE ID//////
-define( 'GROUPON_MASTER_ID', 'groupon-master');
 ///////DEFINE VERSION///////
-define( 'GROUPON_MASTER_VERSION', '4.4.1.5' );
+define( 'GROUPON_MASTER_VERSION', '4.4.2.0' );
+
 global $groupon_master_version, $groupon_master_name;
-$groupon_master_version = "4.4.1.5"; //for other pages
+$groupon_master_version = "4.4.2.0"; //for other pages
 $groupon_master_name = "Groupon Master"; //pretty name
 if( is_multisite() ) {
 update_site_option( 'groupon_master_installed_version', $groupon_master_version );
@@ -45,26 +40,8 @@ else{
 update_option( 'groupon_master_installed_version', $groupon_master_version );
 update_option( 'groupon_master_name', $groupon_master_name );
 }
-// HOOK ADMIN
-require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin.php');
-// HOOK ADMIN IN & UN SHORTCODE
-require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin-shortcodes.php');
-// HOOK ADMIN WIDGETS
-require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin-widgets.php');
-// HOOK ADMIN ADDONS
-require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin-addons.php');
-// HOOK ADMIN UPDATER
-require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin-updater.php');
-// HOOK WIDGET BUTTONS
-require_once( dirname( __FILE__ ) . '/includes/groupon-master-widget-buttons.php');
-// HOOK WIDGET GROUPON DEALS >> ADVANCED
-require_once( dirname( __FILE__ ) . '/includes/groupon-master-widget-groupon-deals.php');
 
 class groupon_master{
-//REGISTER PLUGIN
-public static function groupon_master_register(){
-register_activation_hook( __FILE__, array( __CLASS__, 'groupon_master_activate' ) );
-}
 public static function content_with_quote($content){
 $quote = '<p>' . get_option('tsm_quote') . '</p>';
 	return $content . $quote;
@@ -83,43 +60,19 @@ if ( $file == plugin_basename( dirname(__FILE__).'/groupon-master.php' ) ) {
 	return $links;
 }
 
-public static function groupon_master_updater_version_check(){
-global $groupon_master_version;
-//CHECK NEW VERSION
-$groupon_master_slug = basename(dirname(__FILE__));
-$current = get_site_transient( 'update_plugins' );
-$groupon_plugin_slug = $groupon_master_slug.'/'.$groupon_master_slug.'.php';
-@$r = $current->response[ $groupon_plugin_slug ];
-if (empty($r)){
-$r = false;
-$groupon_plugin_slug = false;
-if( is_multisite() ) {
-update_site_option( 'groupon_master_newest_version', $groupon_master_version );
-}
-else{
-update_option( 'groupon_master_newest_version', $groupon_master_version );
-}
-}
-if (!empty($r)){
-$groupon_plugin_slug = $groupon_master_slug.'/'.$groupon_master_slug.'.php';
-@$r = $current->response[ $groupon_plugin_slug ];
-if( is_multisite() ) {
-update_site_option( 'groupon_master_newest_version', $r->new_version );
-}
-else{
-update_option( 'groupon_master_newest_version', $r->new_version );
-}
-}
-}
-//Remove WP Updater
-// Advanced Updater
-//Updater Label Message
 //END CLASS
-}
-if ( is_admin() ){
-	add_action('admin_init', array('groupon_master', 'groupon_master_register'));
-	add_action('init', array('groupon_master', 'groupon_master_updater_version_check'));
 }
 add_filter('the_content', array('groupon_master', 'content_with_quote'));
 add_filter( 'plugin_action_links', array('groupon_master', 'groupon_master_links'), 10, 2 );
 endif;
+
+// HOOK ADMIN
+require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin.php');
+// HOOK ADMIN ADDONS
+require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin-addons.php');
+// HOOK ADMIN WIDGETS
+require_once( dirname( __FILE__ ) . '/includes/groupon-master-admin-widgets.php');
+// HOOK WIDGET BUTTONS
+require_once( dirname( __FILE__ ) . '/includes/groupon-master-widget-buttons.php');
+// HOOK WIDGET GROUPON DEALS
+require_once( dirname( __FILE__ ) . '/includes/groupon-master-widget-groupon-deals.php');

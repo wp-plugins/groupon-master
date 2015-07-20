@@ -67,7 +67,7 @@ class groupon_master_widget_buttons extends WP_Widget {
 		<br>
 		<b>Check the buttons to be displayed:</b>
 	<p>
-	<img src="<?php echo plugins_url('../images/techgasp-minilogo-16.png', __FILE__); ?>" style="float:left; height:16px; vertical-align:middle;" />
+	<img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; height:16px; vertical-align:middle;" />
 	&nbsp;
 	<input type="checkbox" <?php checked( (bool) $instance['groupon_title'], true ); ?> id="<?php echo $this->get_field_id( 'groupon_title' ); ?>" name="<?php echo $this->get_field_name( 'groupon_title' ); ?>" />
 	<label for="<?php echo $this->get_field_id( 'groupon_title' ); ?>"><b><?php _e('Display Widget Title', 'groupon_master'); ?></b></label></br>
@@ -77,9 +77,9 @@ class groupon_master_widget_buttons extends WP_Widget {
 	<br>
 	<input id="<?php echo $this->get_field_id( 'groupon_title_new' ); ?>" name="<?php echo $this->get_field_name( 'groupon_title_new' ); ?>" value="<?php echo $instance['groupon_title_new']; ?>" style="width:auto;" />
 	</p>
-<div style="background: url(<?php echo plugins_url('../images/techgasp-hr.png', __FILE__); ?>) repeat-x; height: 10px"></div>
+<div style="background: url(<?php echo plugins_url('images/techgasp-hr.png', dirname(__FILE__)); ?>) repeat-x; height: 10px"></div>
 	<p>
-	<img src="<?php echo plugins_url('../images/techgasp-minilogo-16.png', __FILE__); ?>" style="float:left; width:16px; vertical-align:middle;" />
+	<img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; width:16px; vertical-align:middle;" />
 	&nbsp;
 	<input type="checkbox" <?php checked( (bool) $instance['show_grouponbutton'], true ); ?> id="<?php echo $this->get_field_id( 'show_grouponbutton' ); ?>" name="<?php echo $this->get_field_name( 'show_grouponbutton' ); ?>" />
 	<label for="<?php echo $this->get_field_id( 'show_grouponbutton' ); ?>"><b><?php _e('Groupon Profile Button', 'groupon_master'); ?></b></label><br>
@@ -88,9 +88,9 @@ class groupon_master_widget_buttons extends WP_Widget {
 	<label for="<?php echo $this->get_field_id( 'grouponbutton_page' ); ?>"><?php _e('insert your Groupon Profile Link:', 'groupon_master'); ?></label></br>
 	<input id="<?php echo $this->get_field_id( 'grouponbutton_page' ); ?>" name="<?php echo $this->get_field_name( 'grouponbutton_page' ); ?>" value="<?php echo $instance['grouponbutton_page']; ?>" style="width:auto;" />
 	</p>
-<div style="background: url(<?php echo plugins_url('../images/techgasp-hr.png', __FILE__); ?>) repeat-x; height: 10px"></div>
+<div style="background: url(<?php echo plugins_url('images/techgasp-hr.png', dirname(__FILE__)); ?>) repeat-x; height: 10px"></div>
 	<p>
-	<img src="<?php echo plugins_url('../images/techgasp-minilogo-16.png', __FILE__); ?>" style="float:left; width:16px; vertical-align:middle;" />
+	<img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; width:16px; vertical-align:middle;" />
 	&nbsp;
 	<b>Groupon Master Website</b>
 	</p>

@@ -17,7 +17,7 @@ add_menu_page( 'Groupon Master', 'Groupon Master', 'manage_options', 'groupon-ma
 function groupon_master_admin(){
 ?>
 <div class="wrap">
-<div style="width:40px; vertical-align:middle; float:left;"><img src="<?php echo plugins_url('../images/techgasp-minilogo.png', __FILE__); ?>" alt="' . esc_attr__( 'TechGasp Plugins') . '" /><br /></div>
+<div style="width:40px; vertical-align:middle; float:left;"><img src="<?php echo plugins_url('images/techgasp-minilogo.png', dirname(__FILE__)); ?>" alt="' . esc_attr__( 'TechGasp Plugins') . '" /><br /></div>
 <h2><b>&nbsp;TechGasp</b></h2>
 <?php
 
@@ -26,7 +26,7 @@ if(!class_exists('WP_List_Table')){
 }
 
 if(!class_exists('groupon_master_admin_table_header')){
-	require_once( dirname( __FILE__ ) . '/groupon-master-admin-table-header.php');
+	require_once( dirname(__FILE__) . '/groupon-master-admin-table-header.php');
 }
 //Prepare Table of elements
 $wp_list_table = new groupon_master_admin_table_header();
@@ -34,7 +34,7 @@ $wp_list_table = new groupon_master_admin_table_header();
 $wp_list_table->display();
 ?>
 </br>
-<div style="background: url(<?php echo plugins_url('../images/techgasp-hr.png', __FILE__); ?>) repeat-x; height: 10px"></div>
+<div style="background: url(<?php echo plugins_url('images/techgasp-hr.png', dirname(__FILE__)); ?>) repeat-x; height: 10px"></div>
 </br>
 <?php
 if(!class_exists('groupon_master_admin_table_news')){
@@ -48,7 +48,7 @@ $wp_list_table->display();
 </br>
 <h2>IMPORTANT: Makes no use of Javascript or Ajax to keep your website fast and conflicts free</h2>
 
-<div style="background: url(<?php echo plugins_url('../images/techgasp-hr.png', __FILE__); ?>) repeat-x; height: 10px"></div>
+<div style="background: url(<?php echo plugins_url('images/techgasp-hr.png', dirname(__FILE__)); ?>) repeat-x; height: 10px"></div>
 
 <br>
 
@@ -57,7 +57,6 @@ $wp_list_table->display();
 <a class="button-secondary" href="http://wordpress.techgasp.com/support/" target="_blank" title="TechGasp Support">TechGasp Support</a>
 <a class="button-primary" href="http://wordpress.techgasp.com/groupon-master/" target="_blank" title="Visit Website"><?php echo get_option('groupon_master_name'); ?> Info</a>
 <a class="button-primary" href="http://wordpress.techgasp.com/groupon-master-documentation/" target="_blank" title="Visit Website"><?php echo get_option('groupon_master_name'); ?> Documentation</a>
-<a class="button-primary" href="http://wordpress.techgasp.com/groupon-master/" target="_blank" title="Visit Website">Get Add-ons</a>
 </p>
 <?php
 }

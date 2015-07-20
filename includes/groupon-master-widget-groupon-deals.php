@@ -66,7 +66,7 @@ class groupon_master_widget_deals extends WP_Widget {
 		<br>
 		<b>Check the buttons to be displayed:</b>
 	<p>
-	<img src="<?php echo plugins_url('../images/techgasp-minilogo-16.png', __FILE__); ?>" style="float:left; height:16px; vertical-align:middle;" />
+	<img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; height:16px; vertical-align:middle;" />
 	&nbsp;
 	<input type="checkbox" <?php checked( (bool) $instance['groupon_title'], true ); ?> id="<?php echo $this->get_field_id( 'groupon_title' ); ?>" name="<?php echo $this->get_field_name( 'groupon_title' ); ?>" />
 	<label for="<?php echo $this->get_field_id( 'groupon_title' ); ?>"><b><?php _e('Display Widget Title', 'groupon_master'); ?></b></label></br>
@@ -76,9 +76,9 @@ class groupon_master_widget_deals extends WP_Widget {
 	<br>
 	<input id="<?php echo $this->get_field_id( 'groupon_title_new' ); ?>" name="<?php echo $this->get_field_name( 'groupon_title_new' ); ?>" value="<?php echo $instance['groupon_title_new']; ?>" style="width:auto;" />
 	</p>
-<div style="background: url(<?php echo plugins_url('../images/techgasp-hr.png', __FILE__); ?>) repeat-x; height: 10px"></div>
+<div style="background: url(<?php echo plugins_url('images/techgasp-hr.png', dirname(__FILE__)); ?>) repeat-x; height: 10px"></div>
 	<p>
-	<img src="<?php echo plugins_url('../images/techgasp-minilogo-16.png', __FILE__); ?>" style="float:left; height:16px; vertical-align:middle;" />
+	<img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; height:16px; vertical-align:middle;" />
 	&nbsp;
 	<input type="checkbox" <?php checked( (bool) $instance['show_groupondeals'], true ); ?> id="<?php echo $this->get_field_id( 'show_groupondeals' ); ?>" name="<?php echo $this->get_field_name( 'show_groupondeals' ); ?>" />
 	<label for="<?php echo $this->get_field_id( 'show_groupondeals' ); ?>"><b><?php _e('Display Groupon Deals', 'groupon_master'); ?></b></label>
@@ -89,9 +89,9 @@ class groupon_master_widget_deals extends WP_Widget {
 	</p>
 	<div class="description">Copy and Paste your groupon deals script code from groupon website.</div>
 	<br>
-<div style="background: url(<?php echo plugins_url('../images/techgasp-hr.png', __FILE__); ?>) repeat-x; height: 10px"></div>
+<div style="background: url(<?php echo plugins_url('images/techgasp-hr.png', dirname(__FILE__)); ?>) repeat-x; height: 10px"></div>
 	<p>
-	<img src="<?php echo plugins_url('../images/techgasp-minilogo-16.png', __FILE__); ?>" style="float:left; width:16px; vertical-align:middle;" />
+	<img src="<?php echo plugins_url('images/techgasp-minilogo-16.png', dirname(__FILE__)); ?>" style="float:left; width:16px; vertical-align:middle;" />
 	&nbsp;
 	<b>Groupon Master Website</b>
 	</p>
